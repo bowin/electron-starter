@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="starter">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>医嘱查询</title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+<div class="main" ng-controller="main">
+    <div class="title text-center">
+        <h1>医嘱查询</h1>
+    </div>
+
+    <div class="info">
+        <h2>患者信息</h2>
+        <div class="patient-info">
+            <div>
+                <label>姓名</label>
+                <span>{{data.name || ''}}</span>
+            </div>
+            <div>
+                <label>性别</label>
+                <span>{{data.sex || ''}}</span>
+            </div>
+            <div>
+                <label>年龄</label>
+                <span>{{data.age || ''}}</span>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h2>检查项目</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <td ng-repeat="column in columns">{{column}}</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in data.items">
+                <td ng-repeat="info in item">{{info}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+<script>window.$ = window.jQuery = require('./node_modules/jquery/dist/jquery.min.js');</script>
+<script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="./bower_components/angular/angular.min.js"></script>
+<script src="js/app.js"></script>
+</html>
